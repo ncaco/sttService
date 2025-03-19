@@ -1,0 +1,79 @@
+# Python 관련
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+.env
+
+# 가상 환경
+venv/
+ENV/
+.venv/
+.env/
+env/
+.virtualenv/
+
+# IDE 설정
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# 로그 파일
+*.log
+logs/
+
+# 데이터베이스
+*.sqlite3
+*.db
+
+# Docker 관련
+.docker/
+docker-volumes/
+
+# 미디어 및 업로드 파일
+media/
+uploads/
+*.mp3
+*.mp4
+*.wav
+*.ogg
+*.m4a
+*.webm
+*.avi
+*.mov
+
+# 빌드 및 캐시 파일
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+.tox/
+.nox/
+.hypothesis/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# 임시 파일
+tmp/
+temp/ 
