@@ -1,10 +1,7 @@
-from openai import OpenAI
 from app.core.config import settings
 from app.services.transcription_service import transcribe_audio
 from app.services.report_service import text_to_report
-
-# OpenAI 클라이언트 초기화
-client = OpenAI(api_key=settings.OPENAI_API_KEY)
+from app.services.openai_client import client
 
 def summarize_audio(file_path, summary_options=None):
     """

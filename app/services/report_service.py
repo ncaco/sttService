@@ -1,10 +1,7 @@
 import json
 import openai
-from openai import OpenAI
 from app.core.config import settings
-
-# OpenAI 클라이언트 초기화
-client = OpenAI(api_key=settings.OPENAI_API_KEY)
+from app.services.openai_client import client
 
 def text_to_report(text, template_format):
     """

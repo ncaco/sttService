@@ -1,12 +1,9 @@
 import os
 import openai
-from openai import OpenAI
 from pydub import AudioSegment
 import moviepy.editor as mp
 from app.core.config import settings
-
-# OpenAI 클라이언트 초기화
-client = OpenAI(api_key=settings.OPENAI_API_KEY)
+from app.services.openai_client import client
 
 def extract_audio_from_video(video_path):
     """영상 파일에서 오디오 추출"""
