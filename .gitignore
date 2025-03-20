@@ -27,6 +27,7 @@ ENV/
 .venv/
 .env/
 env/
+.env.example
 .virtualenv/
 
 # IDE 설정
