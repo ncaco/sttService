@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api.endpoints import transcription, report_template, report
+from app.api.endpoints import transcription, report_template, report, summary
 
 api_router = APIRouter()
 
@@ -22,4 +22,11 @@ api_router.include_router(
     report.router,
     prefix="/report",
     tags=["report"]
+)
+
+# 요약 API
+api_router.include_router(
+    summary.router,
+    prefix="/summary",
+    tags=["summary"]
 ) 

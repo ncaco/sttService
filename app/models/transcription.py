@@ -47,4 +47,22 @@ class Report(Base):
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
     
     def __repr__(self):
-        return f"<Report(id={self.id}, template_id={self.template_id})>" 
+        return f"<Report(id={self.id}, template_id={self.template_id})>"
+
+
+class Summary(Base):
+    """음성/영상 파일의 요약 정보를 저장하는 모델"""
+    __tablename__ = "summaries"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    transcription_id = Column(Integer, ForeignKey("transcriptions.id"), nullable=False)
+    summary_text = Column(Text, nullable=False)  # 요약된 텍스트
+    length = Column(String(20), nullable=False)  # short, medium, long
+    focus = Column(String(20), nullable=False)   # general, key_points, action_items
+    language = Column(String(10), nullable=False)  # ko, en, ja, etc.
+    report_content = Column(Text, nullable=True)  # JSON 형식으로 저장된 보고서 내용
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+    
+    def __repr__(self):
+        return f"<Summary(id={self.id}, transcription_id={self.transcription_id})>" 
