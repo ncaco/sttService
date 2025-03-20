@@ -1,0 +1,41 @@
+# 버전 속성은 더 이상 사용되지 않으므로 제거합니다.
+# version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: stt_service_app
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    environment:
+      - APP_NAME=sttService
+      - DEBUG=True
+      - SECRET_KEY=${SECRET_KEY:-your_secure_secret_key_here}
+      - API_PREFIX=/api
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=stt_db
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./app:/app/app
+
+  postgres:
+    image: postgres:13
+    container_name: stt_service_db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=stt_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: 
